@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 26.08.2023 23:54:34
+// Create Date: 28.08.2023 12:22:13
 // Design Name: 
-// Module Name: counter
+// Module Name: completekeccak
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,16 +20,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module counter(clk , rst , count
+module completekeccak(a,b,clk,rst
     );
-    input clk,rst;
-    output [6:0] count;
-    reg [6:0] count;
-    always@(posedge clk &&count<77)
-    begin
-        if(rst)
-        count = 7'b1;
-        else
-        count = count + 1;
-    end
+    input [63:0]a;output [63:0] b;input clk;input rst;wire [6:0]count;wire[1599:0] keccakin;wire[1599:0] keccakout;
+    counter C (clk,rst,count);
+    SIPO s1 (a,keccakin,clk,count);
+    Keccakf K1(keccakin,keccakout,count,clk);
+    PISO P1(keccakout,b,clk,count);
 endmodule

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 26.08.2023 23:54:34
+// Create Date: 02.10.2023 12:14:29
 // Design Name: 
-// Module Name: counter
+// Module Name: load64
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,16 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module counter(clk , rst , count
+module load64(x0,x1,x2,x3,x4,x5,x6,x7,r
+
     );
-    input clk,rst;
-    output [6:0] count;
-    reg [6:0] count;
-    always@(posedge clk &&count<77)
-    begin
-        if(rst)
-        count = 7'b1;
-        else
-        count = count + 1;
-    end
+    input [7:0]x0,x1,x2,x3,x4,x5,x6,x7;output [63:0] r;
+    assign r={x7,x6,x5,x4,x3,x2,x1,x0};
 endmodule

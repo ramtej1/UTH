@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 26.08.2023 23:54:34
+// Create Date: 28.08.2023 10:42:21
 // Design Name: 
-// Module Name: counter
+// Module Name: SIPO
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,16 +20,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module counter(clk , rst , count
+module SIPO(a,b,clk,count
+
     );
-    input clk,rst;
-    output [6:0] count;
-    reg [6:0] count;
-    always@(posedge clk &&count<77)
+    input [63:0] a;input clk;input [6:0] count;
+    output [1599:0] b;
+    reg [1599:0] c;
+    assign b=c;
+    always@(posedge clk)
     begin
-        if(rst)
-        count = 7'b1;
-        else
-        count = count + 1;
+     if(count<27)
+     c<={a,c[1599:64]};
+     else
+     c<=c;      
     end
 endmodule

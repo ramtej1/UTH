@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 26.08.2023 23:54:34
+// Create Date: 16.08.2023 16:58:10
 // Design Name: 
-// Module Name: counter
+// Module Name: rearrange
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,16 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module counter(clk , rst , count
+module rearrange(
+
     );
-    input clk,rst;
-    output [6:0] count;
-    reg [6:0] count;
-    always@(posedge clk &&count<77)
-    begin
-        if(rst)
-        count = 7'b1;
-        else
-        count = count + 1;
-    end
+
 endmodule

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 26.08.2023 23:54:34
+// Create Date: 14.08.2023 12:38:18
 // Design Name: 
-// Module Name: counter
+// Module Name: rct
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,16 +20,13 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module counter(clk , rst , count
+module rct(t,b
+
     );
-    input clk,rst;
-    output [6:0] count;
-    reg [6:0] count;
-    always@(posedge clk &&count<77)
-    begin
-        if(rst)
-        count = 7'b1;
-        else
-        count = count + 1;
-    end
+    input [31:0]t;
+    output b;
+    wire nonzero = t[0]|t[1]|t[2]|t[3]|t[4]|t[5]|t[6]|t[7];
+    wire [7:0]complementof7 = 248;
+    wire is7= t&complementof7;
+    assign b= nonzero?(is7?1:0):1;
 endmodule
